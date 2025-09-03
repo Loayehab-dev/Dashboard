@@ -1,0 +1,91 @@
+AD/* Navbar link styles (default state) */
+.navbar-light .nav-link {
+  padding: 8px 15px; /* Consistent padding for RTL */
+  border-radius: 30px; /* Persistent rounded corners */
+  background-color: transparent; /* Default transparent background */
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+
+/* Dark mode navbar link styles (default state) */
+.dark-mode .navbar-light .nav-link {
+  border-radius: 30px; /* Persistent rounded corners */
+  background-color: transparent; /* Default transparent background */
+  transition: all 0.3s ease;
+}
+
+/* Hover-capable devices: Navbar hover styles for light mode */
+@media (hover: hover) {
+  .navbar-light .nav-link:hover {
+    background-color: #21a29b; /* Teal background */
+    color: #fff; /* White text for contrast */
+    border-bottom: 2px solid #fff; /* White bottom border */
+    transform: scale(1.05); /* Slight scale animation */
+  }
+
+  /* Navbar brand hover */
+  .navbar-light .nav-hover:hover {
+    color: #21a29b; /* Teal text */
+    transition: color 0.3s ease;
+  }
+
+  /* Active link hover */
+  .navbar-light .nav-link.active:hover {
+    background-color: #21a29b; /* Teal for active link */
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    transform: scale(1.05);
+  }
+
+  /* Dark mode hover styles */
+  .dark-mode .navbar-light .nav-link:hover {
+    background-color: #555; /* Lighter gray for dark mode */
+    color: #fff;
+    border-bottom: 2px solid #ccc; /* Light gray border */
+    transform: scale(1.05);
+  }
+
+  /* Dark mode navbar brand hover */
+  .dark-mode .navbar-light .nav-hover:hover {
+    color: #ccc; /* Light gray text for dark mode */
+  }
+}
+
+/* Touch devices: Use :active for tap interactions */
+@media (hover: none) {
+  .navbar-light .nav-link:active {
+    background-color: #21a29b; /* Teal background */
+    color: #fff; /* White text for contrast */
+    border-bottom: 2px solid #fff; /* White bottom border */
+    transform: scale(1.05); /* Slight scale animation */
+  }
+
+  /* Navbar brand active */
+  .navbar-light .nav-hover:active {
+    color: #21a29b; /* Teal text */
+    transition: color 0.3s ease;
+  }
+
+  /* Active link active */
+  .navbar-light .nav-link.active:active {
+    background-color: #21a29b; /* Teal for active link */
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    transform: scale(1.05);
+  }
+
+  /* Dark mode active styles */
+  .dark-mode .navbar-light .nav-link:active {
+    background-color: #555; /* Lighter gray for dark mode */
+    color: #fff;
+    border-bottom: 2px solid #ccc; /* Light gray border */
+    transform: scale(1.05);
+  }
+
+/* Dark mode navbar brand active */
+.dark-mode .navbar-light .nav-hover:active {
+    color: #ccc; /* Light gray text for dark mode */
+}
+}
+/* Card styles */
+.border-left-primary {
+}
