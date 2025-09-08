@@ -1,8 +1,6 @@
 :root {
   --sidebar-width: 270px;
   --sidebar-width-collapsed: 80px;
-
-  /* Light Theme */
   --bg-color: #f8fbff;
   --sidebar-bg: linear-gradient(135deg, #0d0d0f 0%, #293f8e 100%);
   --text-color: #1e293b;
@@ -50,7 +48,7 @@
 
 body {
   background: var(--bg-color);
-  padding: 40px 20px;
+  padding: 55px 20px;
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
 }

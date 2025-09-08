@@ -6,24 +6,35 @@
     <meta author="Eng.Berlin" />
     <meta description="Admin Dashboard" />
     <!-- DataTables CSS -->
-    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"rel="stylesheet"/>
-      
+    <link
+      href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
+      rel="stylesheet"
+    />
     <!-- Animate.css -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"rel="stylesheet"/>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+    />
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"rel="stylesheet"/>
-    <link href="https://cdn.datatables.net/2.3.3/css/dataTables.dataTables.min.css"rel="stylesheet"/>
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <link
+    href="https://cdn.datatables.net/2.3.3/css/dataTables.dataTables.min.css"
+    rel="stylesheet"
+    />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <!-- Toastr CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" />
-    
+    <style></style>
     <title>Dashboard</title>
   </head>
   <body data-bs-theme="light">
     
 
-    <!-- Loader -->
+<!-- Loader -->
     <div class="loader" id="loader">
         <div class="loader-content">
             <div class="spinner"></div>
@@ -45,19 +56,16 @@
           <i class="fas fa-home me-3"></i>
           <span class="hide-on-collapse">Dashboard</span>
         </a>
-        <a href="#" class="sidebar-link text-decoration-none p-3">
-          <i class="fas fa-chart-bar me-3"></i>
-          <span class="hide-on-collapse">Reports</span>
-        </a>
         <a href="users.html" class="sidebar-link text-decoration-none p-3">
-          <i class="fas fa-users me-3"></i>
-          <span class="hide-on-collapse">Users</span>
+            <i class="fas fa-users me-3"></i>
+            <span class="hide-on-collapse">Users</span>
         </a>
-
+        
         <a href="posts.html" class="sidebar-link text-decoration-none p-3">
-          <i class="fas fa-box me-3"></i>
-          <span class="hide-on-collapse">Posts</span>
+            <i class="fas fa-box me-3"></i>
+            <span class="hide-on-collapse">Posts</span>
         </a>
+        
         <a href="#" class="sidebar-link text-decoration-none p-3">
           <i class="fas fa-comments me-3"></i>
           <span class="hide-on-collapse">Comments</span>
@@ -294,165 +302,8 @@
         <!-- Container wrapper -->
       </nav>
     </header>
-
     <main class="main-content">
-      <div id="dashboard-section" class="container-fluid">
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          <h1 class="h3 mb-0 text-gray-800">Dashboard Statistics</h1>
-          <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-        </div>
-
-        <div class="row g-4">
-          <!-- Users Card -->
-          <div class="col-xl-3 col-md-6">
-            <div class="card stats-card card-hover-success shadow-sm">
-              <div class="card-body">
-                <div class="d-flex justify-content-between align-items-start">
-                  <div>
-                    <div class="text-muted text-uppercase fw-bold small">
-                      Users
-                    </div>
-                    <div id="users-count" class="stat-value text-success">100</div>
-                    <div class="stat-change text-success"></div>
-                  </div>
-                  <div class="icon-circle">
-                    <i class="fas fa-users text-success"></i>
-                  </div>
-                </div>
-                <div class="progress mt-4">
-                  <div
-                    class="progress-bar bg-success"
-                    role="progressbar"
-                    style="width: 85%"
-                  ></div>
-                </div>
-                <div class="mini-chart">
-                  <div class="chart-bar" style="height: 50%"></div>
-                  <div class="chart-bar" style="height: 70%"></div>
-                  <div class="chart-bar" style="height: 85%"></div>
-                  <div class="chart-bar" style="height: 75%"></div>
-                  <div class="chart-bar" style="height: 85%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Likes Stats -->
-          <div class="col-xl-3 col-md-6">
-            <div class="card stats-card card-hover-primary shadow-sm">
-              <div class="card-body">
-                <div class="d-flex justify-content-between align-items-start">
-                  <div>
-                    <div class="text-muted text-uppercase fw-bold small">
-                      Likes
-                    </div>
-                    <div  id="likes-count" class="stat-value text-primary">500</div>
-                    <div class="stat-change text-success"></div>
-                  </div>
-                  <div class="icon-circle">
-                    <i class="fa-solid fa-heart text-primary"></i>
-                  </div>
-                </div>
-                <div class="progress mt-4">
-                  <div
-                    class="progress-bar bg-primary"
-                    role="progressbar"
-                    style="width: 75%"
-                  ></div>
-                </div>
-                <div class="mini-chart">
-                  <div class="chart-bar" style="height: 60%"></div>
-                  <div class="chart-bar" style="height: 40%"></div>
-                  <div class="chart-bar" style="height: 80%"></div>
-                  <div class="chart-bar" style="height: 65%"></div>
-                  <div class="chart-bar" style="height: 75%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Comments Card -->
-          <div class="col-xl-3 col-md-6">
-            <div class="card stats-card card-hover-info shadow-sm">
-              <div class="card-body">
-                <div class="d-flex justify-content-between align-items-start">
-                  <div>
-                    <div class="text-muted text-uppercase fw-bold small">
-                      Comments
-                    </div>
-                    <div id="comments-count" class="stat-value text-info">1506</div>
-                    <div class="stat-change text-danger"></div>
-                  </div>
-                  <div class="icon-circle">
-                    <i class="fas fa-comments text-info"></i>
-                  </div>
-                </div>
-                <div class="progress mt-4">
-                  <div
-                    class="progress-bar bg-info"
-                    role="progressbar"
-                    style="width: 65%"
-                  ></div>
-                </div>
-                <div class="mini-chart">
-                  <div class="chart-bar" style="height: 80%"></div>
-                  <div class="chart-bar" style="height: 65%"></div>
-                  <div class="chart-bar" style="height: 55%"></div>
-                  <div class="chart-bar" style="height: 65%"></div>
-                  <div class="chart-bar" style="height: 65%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Posts Card -->
-          <div class="col-xl-3 col-md-6">
-            <div class="card stats-card card-hover-warning shadow-sm">
-              <div class="card-body">
-                <div class="d-flex justify-content-between align-items-start">
-                  <div>
-                    <div class="text-muted text-uppercase fw-bold small">
-                      posts
-                    </div>
-                    <div id="posts-count" class="stat-value text-warning">2400</div>
-                    <div class="stat-change text-success"></div>
-                  </div>
-                  <div class="icon-circle">
-                    <i class="fa-solid fa-pen-to-square text-warning"></i>
-                  </div>
-                </div>
-                <div class="progress mt-4">
-                  <div
-                    class="progress-bar bg-warning"
-                    role="progressbar"
-                    style="width: 45%"
-                  ></div>
-                </div>
-                <div class="mini-chart">
-                  <div class="chart-bar" style="height: 30%"></div>
-                  <div class="chart-bar" style="height: 45%"></div>
-                  <div class="chart-bar" style="height: 40%"></div>
-                  <div class="chart-bar" style="height: 45%"></div>
-                  <div class="chart-bar" style="height: 45%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="content container">
-        <!-- DataTables  -->
-       <div class="container-fluid">
-        <div class="enhanced-table-container">
-            <!-- Table Header -->
-            <div class="table-header">
-                <h6>
-                    <i class="fas fa-chart-line"></i>
-                    User Statistics & Analytics
-                </h6>
-            </div>
-
-            <!-- Table Controls -->
+         <!-- Table Controls -->
             <div class="table-controls">
                 <div class="search-container">
                     <input type="text" class="search-input" placeholder="Search users..." id="searchInput">
@@ -525,18 +376,17 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                                <div class="action-buttons">
-                                    <button class="action-btn btn-view" title="View Profile">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                    <button class="action-btn btn-edit" title="Edit User">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button class="action-btn btn-delete" title="Delete User">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
+                            <td class="action-buttons">
+                                <button class="btn btn-sm btn-light action-btn btn-view" title="View Profile">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn btn-sm btn-light action-btn btn-edit" title="Edit User">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-light action-btn btn-delete" title="Delete User">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <!-- Favorite button will be added automatically by JavaScript -->
                             </td>
                         </tr>
                     </tbody>
@@ -564,7 +414,22 @@
     </div>
     </main>
 
-    
+    <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userModalLabel">User Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+            <div class="modal-footer">
+                <!-- Footer buttons will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+</div>
 
     <script src="js/Ajax.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>

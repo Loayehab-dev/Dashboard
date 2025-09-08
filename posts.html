@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta author="Eng.Berlin" />
+    <meta description="Posts Management Dashboard" />
+    <!-- DataTables CSS -->
+    <link
+      href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
+      rel="stylesheet"
+    />
+    <!-- Animate.css -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <link
+    href="https://cdn.datatables.net/2.3.3/css/dataTables.dataTables.min.css"
+    rel="stylesheet"
+    />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Toastr CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/posts.css" rel="stylesheet" />
+    <style>
+    
+    </style>
+    <title>Posts Management</title>
+  </head>
+  <body data-bs-theme="light">
+    
+
+<!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+        </div>
+    </div> 
+
+    <nav class="sidebar d-flex flex-column flex-shrink-0 position-fixed">
+      <button class="toggle-btn" onclick="toggleSidebar()">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <div class="p-4">
+        <h4 class="logo-text fw-bold mb-0">Berlin</h4>
+        <p class="text-muted small hide-on-collapse">Dashboard</p>
+      </div>
+
+      <div class="nav flex-column">
+        <a href="index.html" class="sidebar-link text-decoration-none p-3">
+          <i class="fas fa-home me-3"></i>
+          <span class="hide-on-collapse">Dashboard</span>
+        </a>
+        <a href="users.html" class="sidebar-link text-decoration-none p-3">
+            <i class="fas fa-users me-3"></i>
+            <span class="hide-on-collapse">Users</span>
+        </a>
+        
+        <a href="#" class="sidebar-link active text-decoration-none p-3">
+            <i class="fas fa-box me-3"></i>
+            <span class="hide-on-collapse">Posts</span>
+        </a>
+        
+        <a href="#" class="sidebar-link text-decoration-none p-3">
+          <i class="fas fa-comments me-3"></i>
+          <span class="hide-on-collapse">Comments</span>
+        </a>
+        <a href="#" class="sidebar-link text-decoration-none p-3">
+          <i class="fas fa-gear me-3"></i>
+          <span class="hide-on-collapse">Settings</span>
+        </a>
+      </div>
+
+      <div class="profile-section mt-auto p-5">
+        <div class="d-flex align-items-center">
+          <img
+            src="https://randomuser.me/api/portraits/women/70.jpg"
+            style="height: 60px"
+            class="rounded-circle"
+            alt="Profile"
+          />
+          <div class="ms-3 profile-info">
+            <h6 class="text-white mb-0 mt-0">Perlo</h6>
+            <small class="text-muted">Admin</small>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <header>
+      <nav
+        id="main-navbar"
+        class="navbar navbar-expand-lg navbar-light bg-primary fixed-top"
+      >
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+          <!-- Toggler -->
+          <button
+            data-mdb-toggle="sidenav"
+            data-mdb-target="#sidenav-1"
+            class="btn shadow-0 p-0 me-3 d-block d-xxl-none"
+            aria-controls="#sidenav-1"
+            aria-haspopup="true"
+          >
+            <i class="fas fa-bars fa-lg"></i>
+          </button>
+
+          <!-- Search form -->
+          <form
+            class="d-none d-md-flex justify-content-center mx-auto input-group w-auto my-auto search-form"
+          >
+            <input
+              autocomplete="off"
+              type="search"
+              class="form-control rounded search-input"
+              placeholder="Search posts..."
+              style="min-width: 225px"
+            />
+            <span class="input-group-text border-0"
+              ><i class="fas fa-search"></i
+            ></span>
+          </form>
+
+          <!-- Right links -->
+          <ul class="navbar-nav d-flex align-items-center flex-row">
+            <li class="nav-item">
+              <a
+                class="nav-link me-3 py-1"
+                href="#"
+                data-mdb-toggle="tooltip"
+                title="Create Post"
+                id="createPostBtn"
+              >
+                <i class="fas fa-plus"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link me-3 py-1"
+                href="#"
+                data-mdb-toggle="tooltip"
+                title="Bulk Actions"
+              >
+                <i class="fas fa-th"></i>
+              </a>
+            </li>
+            <li class="nav-item me-3">
+              <a
+                class="nav-link py-1"
+                href="#"
+                data-mdb-toggle="tooltip"
+                title="Notifications"
+              >
+                <i class="fas fa-bell"></i>
+              </a>
+            </li>
+            <li>
+              <button id="themeToggle" class="btn btn-outline-secondary">
+                <i class="fas fa-moon"></i>  Dark 
+              </button>
+            </li>
+
+            <!-- Avatar -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center py-1"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-mdb-dropdown-init
+                aria-expanded="false"
+              >
+                <img
+                  src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
+                  class="rounded-circle"
+                  height="30"
+                  alt=""
+                  loading="lazy"
+                />
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="navbarDropdownMenuLink"
+                style="min-width: 19rem"
+              >
+                <li>
+                  <div class="px-3 pt-3 d-flex">
+                    <img
+                      src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
+                      class="rounded-circle me-3"
+                      height="40"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <div>
+                      <h6 class="mb-0">Marie Campbell</h6>
+                      <p class="mb-2">mariecampbell@example.com</p>
+                      <a class="mb-0" href="">Manage your Account</a>
+                    </div>
+                  </div>
+                  <hr class="mb-2" />
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-user-circle fa-fw me-3"></i
+                    ><span>Profile</span></a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-cog fa-fw me-3"></i
+                    ><span>Settings</span></a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-sign-out-alt me-3"></i
+                    ><span>Sign out</span></a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+    </header>
+    
+    <main class="main-content">
+        <!-- Page Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="mb-1">Posts Management</h2>
+                <p class="text-muted mb-0">Manage and monitor all posts</p>
+            </div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-outline-primary" id="bulkActionsBtn">
+                    <i class="fas fa-tasks me-1"></i> Bulk Actions
+                </button>
+                <button class="btn btn-primary" id="addPostBtn">
+                    <i class="fas fa-plus me-1"></i> Add New Post
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h3 class="mb-0" id="total-posts">0</h3>
+                                <p class="mb-0">Total Posts</p>
+                            </div>
+                            <div class="ms-auto">
+                                <i class="fas fa-box fa-2x opacity-75"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h3 class="mb-0" id="published-posts">0</h3>
+                                <p class="mb-0">Published</p>
+                            </div>
+                            <div class="ms-auto">
+                                <i class="fas fa-check-circle fa-2x opacity-75"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-warning text-white">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h3 class="mb-0" id="draft-posts">0</h3>
+                                <p class="mb-0">Drafts</p>
+                            </div>
+                            <div class="ms-auto">
+                                <i class="fas fa-edit fa-2x opacity-75"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-info text-white">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h3 class="mb-0" id="total-views">0</h3>
+                                <p class="mb-0">Total Views</p>
+                            </div>
+                            <div class="ms-auto">
+                                <i class="fas fa-eye fa-2x opacity-75"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table Controls -->
+        <div class="table-controls">
+            <div class="search-container">
+                <input type="text" class="search-input form-control" placeholder="Search posts..." id="searchInput" style="max-width: 300px;">
+            </div>
+            <div class="filter-buttons">
+                <button class="btn btn-outline-secondary btn-sm filter-btn active" data-filter="all">All</button>
+                <button class="btn btn-outline-success btn-sm filter-btn" data-filter="published">Published</button>
+                <button class="btn btn-outline-warning btn-sm filter-btn" data-filter="draft">Drafts</button>
+                <button class="btn btn-outline-info btn-sm filter-btn" data-filter="pending">Pending</button>
+                <button class="btn btn-outline-danger btn-sm filter-btn" data-filter="archived">Archived</button>
+                <button class="btn btn-outline-primary btn-sm ms-2" id="exportFavorites">
+                    <i class="fas fa-star me-1"></i> Export Favorites
+                </button>
+                <button class="btn btn-outline-info btn-sm ms-1" id="viewFavorites">
+                    <i class="fas fa-heart me-1"></i> Favorites (<span id="favoritesCount">0</span>)
+                </button>
+            </div>
+        </div>
+
+        <!-- Table Content -->
+        <div class="table-responsive">
+            <table class="table table-hover enhanced-table">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width: 25%;">Post</th>
+                        <th style="width: 15%;">Author</th>
+                        <th style="width: 10%;">Category</th>
+                        <th style="width: 10%;">Status</th>
+                        <th style="width: 8%;">Views</th>
+                        <th style="width: 8%;">Likes</th>
+                        <th style="width: 8%;">Comments</th>
+                        <th style="width: 10%;">Date</th>
+                        <th style="width: 15%;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Posts will be dynamically loaded here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Table Footer -->
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <div class="pagination-info">
+                <span>Showing 1-10 of 100 entries</span>
+            </div>
+            <div class="pagination-controls">
+                <button class="btn btn-outline-secondary btn-sm pagination-btn" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="btn btn-primary btn-sm pagination-btn active">1</button>
+                <button class="btn btn-outline-secondary btn-sm pagination-btn">2</button>
+                <button class="btn btn-outline-secondary btn-sm pagination-btn">3</button>
+                <button class="btn btn-outline-secondary btn-sm pagination-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Post Modal -->
+    <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="postModalLabel">Post Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Content will be dynamically inserted here -->
+                </div>
+                <div class="modal-footer">
+                    <!-- Footer buttons will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.3/js/dataTables.min.js"></script>
+    <script src="js/posts.js"></script>
+  </body>
+</html>

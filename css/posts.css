@@ -1,0 +1,287 @@
+ 
+      .action-buttons {
+          display: flex;
+          gap: 5px;
+          justify-content: center;
+          flex-wrap: wrap;
+      }
+
+      .action-btn {
+          padding: 0.375rem 0.5rem;
+          border: 1px solid #dee2e6;
+          background: #e2c0c0;
+          transition: all 0.2s ease;
+          min-width: 35px;
+      }
+
+      .action-btn:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      .btn-view:hover {
+          background-color: #0d6efd;
+          color: white;
+          border-color: #0d6efd;
+      }
+      .btn-view{
+         background-color: #0d6efd;
+          color: white;
+          border-color: #0d6efd;
+      }
+ .btn-edit {
+          background-color: #198754;
+          color: white;
+          border-color: #198754;
+      }
+      .btn-edit:hover {
+          background-color: #198754;
+          color: white;
+          border-color: #198754;
+      }
+      .btn-delete {
+          background-color: #dc3545;
+          color: white;
+          border-color: #dc3545;
+      }
+
+
+      .btn-delete:hover {
+          background-color: #dc3545;
+          color: white;
+          border-color: #dc3545;
+      }
+
+      .btn-publish:hover {
+          background-color: #20c997;
+          color: white;
+          border-color: #20c997;
+      }
+
+      .btn-favorite {
+          background-color: transparent;
+      }
+
+      .btn-favorite.btn-warning {
+          background-color: #ffc107;
+          border-color: #ffc107;
+          color: #212529;
+      }
+
+      .btn-favorite.btn-outline-warning {
+          color: #ffc107;
+          border-color: #ffc107;
+      }
+
+      .btn-favorite.btn-outline-warning:hover {
+          background-color: #ffc107;
+          color: #212529;
+      }
+
+     
+      .post-cell {
+          display: flex;
+          align-items: flex-start;
+          gap: 1rem;
+      }
+
+      .post-thumbnail {
+          width: 60px;
+          height: 60px;
+          object-fit: cover;
+          border-radius: 8px;
+          flex-shrink: 0;
+      }
+
+      .post-info h6 {
+          margin-bottom: 0.25rem;
+          font-size: 0.9rem;
+          line-height: 1.2;
+          max-width: 200px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+      }
+
+      .post-info p {
+          margin-bottom: 0;
+          font-size: 0.8rem;
+          color: #6c757d;
+          max-width: 200px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+      }
+
+      .post-author {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+      }
+
+      .author-avatar {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+      }
+
+      .author-info h6 {
+          margin-bottom: 0;
+          font-size: 0.85rem;
+      }
+
+      .author-info small {
+          font-size: 0.75rem;
+          color: #6c757d;
+      }
+
+      /* Status badges */
+      .status-badge {
+          padding: 0.25rem 0.75rem;
+          border-radius: 0.375rem;
+          font-size: 0.875rem;
+          font-weight: 500;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.25rem;
+      }
+
+      .status-published {
+          background-color: #d1e7dd;
+          color: #0f5132;
+      }
+
+      .status-draft {
+          background-color: #fff3cd;
+          color: #664d03;
+      }
+
+      .status-archived {
+          background-color: #f8d7da;
+          color: #721c24;
+      }
+
+      .status-pending {
+          background-color: #cff4fc;
+          color: #055160;
+      }
+
+    
+      .metric-cell {
+          text-align: center;
+          font-weight: 600;
+      }
+
+      .metric-trend {
+          font-size: 0.75rem;
+          margin-top: 2px;
+      }
+
+      .trend-up {
+          color: #198754;
+      }
+
+      .trend-down {
+          color: #dc3545;
+      }
+
+      .trend-neutral {
+          color: #6c757d;
+      }
+
+      /* Category tags */
+      .category-tag {
+          background-color: #e9ecef;
+          color: #495057;
+          padding: 0.2rem 0.5rem;
+          border-radius: 0.25rem;
+          font-size: 0.75rem;
+          font-weight: 500;
+      }
+
+      /* Table controls */
+      .table-controls {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 1rem;
+          flex-wrap: wrap;
+          gap: 1rem;
+      }
+
+      .filter-buttons {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+          flex-wrap: wrap;
+      }
+
+      /* Post details modal */
+      .post-details img {
+          max-width: 100%;
+          border-radius: 8px;
+          margin-bottom: 1rem;
+      }
+
+      .post-meta {
+          display: flex;
+          gap: 1rem;
+          margin-bottom: 1rem;
+          flex-wrap: wrap;
+      }
+
+      .post-meta-item {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 0.875rem;
+          color: #6c757d;
+      }
+
+      .post-content {
+          max-height: 300px;
+          overflow-y: auto;
+          padding: 1rem;
+          background-color: #f8f9fa;
+          border-radius: 0.375rem;
+          margin-bottom: 1rem;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+          .post-cell {
+              flex-direction: column;
+              gap: 0.5rem;
+          }
+
+          .post-info h6,
+          .post-info p {
+              max-width: 100%;
+              white-space: normal;
+          }
+
+          .action-buttons {
+              justify-content: center;
+              gap: 3px;
+          }
+          
+          .action-btn {
+              padding: 0.25rem 0.375rem;
+              font-size: 0.75rem;
+              min-width: 30px;
+          }
+          
+          .table-controls {
+              flex-direction: column;
+              align-items: stretch;
+          }
+          
+          .filter-buttons {
+              justify-content: center;
+          }
+
+          .post-meta {
+              flex-direction: column;
+              gap: 0.5rem;
+          }
+      }
